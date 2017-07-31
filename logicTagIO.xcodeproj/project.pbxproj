@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		6E6A7CB11F2F518B00840813 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6A7CB01F2F518B00840813 /* AppDelegate.swift */; };
-		6E6A7CB31F2F518B00840813 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6A7CB21F2F518B00840813 /* ViewController.swift */; };
+		6E6A7CB31F2F518B00840813 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6A7CB21F2F518B00840813 /* MapVC.swift */; };
 		6E6A7CB61F2F518B00840813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6A7CB41F2F518B00840813 /* Main.storyboard */; };
 		6E6A7CB81F2F518C00840813 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6A7CB71F2F518C00840813 /* Assets.xcassets */; };
 		6E6A7CBB1F2F518C00840813 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6A7CB91F2F518C00840813 /* LaunchScreen.storyboard */; };
+		FF71E695D0A0889A9CEF2206 /* Pods_logicTagIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B5DF8F939C67B572E0F589E /* Pods_logicTagIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B5DF8F939C67B572E0F589E /* Pods_logicTagIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_logicTagIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6A7CAD1F2F518B00840813 /* logicTagIO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = logicTagIO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6A7CB01F2F518B00840813 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6E6A7CB21F2F518B00840813 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6E6A7CB21F2F518B00840813 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		6E6A7CB51F2F518B00840813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6E6A7CB71F2F518C00840813 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E6A7CBA1F2F518C00840813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E6A7CBC1F2F518C00840813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A3298145218D99C41CBDAE9 /* Pods-logicTagIO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-logicTagIO.release.xcconfig"; path = "Pods/Target Support Files/Pods-logicTagIO/Pods-logicTagIO.release.xcconfig"; sourceTree = "<group>"; };
+		989B2F895A943F344EC4F65B /* Pods-logicTagIO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-logicTagIO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-logicTagIO/Pods-logicTagIO.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF71E695D0A0889A9CEF2206 /* Pods_logicTagIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		076DCFCE380EB308FAF8181F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B5DF8F939C67B572E0F589E /* Pods_logicTagIO.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6AA145DCC873710A0C357905 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				989B2F895A943F344EC4F65B /* Pods-logicTagIO.debug.xcconfig */,
+				7A3298145218D99C41CBDAE9 /* Pods-logicTagIO.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6E6A7CA41F2F518B00840813 = {
 			isa = PBXGroup;
 			children = (
 				6E6A7CAF1F2F518B00840813 /* logicTagIO */,
 				6E6A7CAE1F2F518B00840813 /* Products */,
+				6AA145DCC873710A0C357905 /* Pods */,
+				076DCFCE380EB308FAF8181F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +78,54 @@
 		6E6A7CAF1F2F518B00840813 /* logicTagIO */ = {
 			isa = PBXGroup;
 			children = (
+				6E9BF4DB1F2F53E10010D9C7 /* Utilities */,
+				6E9BF4DA1F2F53D10010D9C7 /* Extensions */,
+				6E9BF4D91F2F53BA0010D9C7 /* Controller */,
+				6E9BF4D81F2F53B60010D9C7 /* View */,
+				6E9BF4D71F2F53AF0010D9C7 /* Model */,
 				6E6A7CB01F2F518B00840813 /* AppDelegate.swift */,
-				6E6A7CB21F2F518B00840813 /* ViewController.swift */,
 				6E6A7CB41F2F518B00840813 /* Main.storyboard */,
 				6E6A7CB71F2F518C00840813 /* Assets.xcassets */,
 				6E6A7CB91F2F518C00840813 /* LaunchScreen.storyboard */,
 				6E6A7CBC1F2F518C00840813 /* Info.plist */,
 			);
 			path = logicTagIO;
+			sourceTree = "<group>";
+		};
+		6E9BF4D71F2F53AF0010D9C7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E9BF4D81F2F53B60010D9C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E9BF4D91F2F53BA0010D9C7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E6A7CB21F2F518B00840813 /* MapVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E9BF4DA1F2F53D10010D9C7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6E9BF4DB1F2F53E10010D9C7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E6A7CBF1F2F518C00840813 /* Build configuration list for PBXNativeTarget "logicTagIO" */;
 			buildPhases = (
+				153AD158E552036200D5B066 /* [CP] Check Pods Manifest.lock */,
 				6E6A7CA91F2F518B00840813 /* Sources */,
 				6E6A7CAA1F2F518B00840813 /* Frameworks */,
 				6E6A7CAB1F2F518B00840813 /* Resources */,
+				215BC100E8DD080A0CDBA6B7 /* [CP] Embed Pods Frameworks */,
+				32020731A396E61ACA83686A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,12 +199,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		153AD158E552036200D5B066 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		215BC100E8DD080A0CDBA6B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-logicTagIO/Pods-logicTagIO-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		32020731A396E61ACA83686A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-logicTagIO/Pods-logicTagIO-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6E6A7CA91F2F518B00840813 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E6A7CB31F2F518B00840813 /* ViewController.swift in Sources */,
+				6E6A7CB31F2F518B00840813 /* MapVC.swift in Sources */,
 				6E6A7CB11F2F518B00840813 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +376,7 @@
 		};
 		6E6A7CC01F2F518C00840813 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 989B2F895A943F344EC4F65B /* Pods-logicTagIO.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JWZKK84V7N;
@@ -274,6 +390,7 @@
 		};
 		6E6A7CC11F2F518C00840813 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A3298145218D99C41CBDAE9 /* Pods-logicTagIO.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JWZKK84V7N;
@@ -304,6 +421,7 @@
 				6E6A7CC11F2F518C00840813 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
