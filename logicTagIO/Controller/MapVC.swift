@@ -9,7 +9,8 @@
 import UIKit
 import MapKit
 import CoreLocation
-
+import Alamofire
+import AlamofireImage
 
 class MapVC: UIViewController, UIGestureRecognizerDelegate {
     
@@ -27,6 +28,9 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     
     var flowLayout = UICollectionViewFlowLayout()
     var collectionView: UICollectionView?
+    
+    var imageUrlArray = [String]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +102,25 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    func retrieveUrls(forAnnotation annotation: DroppablePin, handler: @escaping (_ sstatus: Bool) -> () ) {
+        imageUrlArray = []
+        
+        Alamofire.request(flicrUrl(forApiKey: apiKey, withAnnotation: annotation, andNumberOfPhotos: 40)).responseJSON { (response) in
+            print(response)
+            guard let json = response.result.value as? Dictionary<String, AnyObject>  else {return}
+            let photosDict = json["photos"] as! Dictionary<String,AnyObject>
+            let photosDictArray = photosDict["photo"] as! [Dictionary<String, AnyObject>]
+            
+            for photo in photosDictArray {
+                let postUrl = "https://farm\(photo["farm"]!).staticflickr.com/\(photo["server"]!)/\(photo["id"]!)_\(photo["secret"]!)_h_d.jpg"
+                self.imageUrlArray.append(postUrl)
+            }
+            handler(true)
+        }
+        
+    }
+    
+    
     
     func addProgressLbl() {
         progressLbl = UILabel()
@@ -122,6 +145,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
             print("centered map ")
         }
     }
+    
     
     
     override func didReceiveMemoryWarning() {
@@ -150,6 +174,7 @@ extension MapVC: MKMapViewDelegate {
         guard let coordinate = locationManager.location?.coordinate  else { return }
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(coordinate, regionRadius * 2 , regionRadius * 2)
         mapView.setRegion(coordinateRegion, animated: true)
+        
     }
     
     @objc func dropPin(sender: UITapGestureRecognizer) { //Drop the pin on the map
@@ -170,6 +195,10 @@ extension MapVC: MKMapViewDelegate {
         
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(touchCoordinate, regionRadius * 2, regionRadius * 2)
         mapView.setRegion(coordinateRegion, animated: true)
+        
+        retrieveUrls(forAnnotation: annontation) { (true) in
+         print(self.imageUrlArray)
+        }
         
         //Printing user location with api
         flicrUrl(forApiKey: apiKey, withAnnotation: annontation, andNumberOfPhotos: 40)
