@@ -30,7 +30,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     var collectionView: UICollectionView?
     
     var imageUrlArray = [String]()
-    
+    var imageArray = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +74,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     
     
     @objc  func animateViewDown() {
+        cancelAllSessions()
         pullUpViewHeightConstraints.constant = 0
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
@@ -118,6 +119,22 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
             handler(true)
         }
         
+    }
+    
+    func retrieveImages(handler: @escaping (_ status: Bool) -> () ) {
+        imageArray = []
+        
+        for url in imageUrlArray {
+            Alamofire.request(url).responseImage(completionHandler: { (response) in
+                guard let image = response.result.value else {return}
+                self.imageArray.append(image)
+                self.progressLbl?.text = "\(self.imageArray.count)_/40 IMAGES DOWNLOADED"
+                
+                if self.imageArray.count == self.imageUrlArray.count {
+                    handler(true)
+                }
+            })
+        }
     }
     
     
@@ -181,6 +198,7 @@ extension MapVC: MKMapViewDelegate {
         removePin()
         removeSpinner()
         removeProgressLbl()
+        cancelAllSessions()
         
         animateViewUp()
         addSwipe()
@@ -196,13 +214,31 @@ extension MapVC: MKMapViewDelegate {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(touchCoordinate, regionRadius * 2, regionRadius * 2)
         mapView.setRegion(coordinateRegion, animated: true)
         
-        retrieveUrls(forAnnotation: annontation) { (true) in
-         print(self.imageUrlArray)
+        retrieveUrls(forAnnotation: annontation) { (finished) in
+            if finished == true {
+                self.retrieveImages(handler: { (finished) in
+                    if finished {
+                        self.removeSpinner()
+                        self.removeProgressLbl()
+                        //reload collectionview
+                        
+                    }
+                })
+            }
         }
         
         //Printing user location with api
         flicrUrl(forApiKey: apiKey, withAnnotation: annontation, andNumberOfPhotos: 40)
     }
+    
+    
+    func cancelAllSessions() {
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach({ $0.cancel() })
+            downloadData.forEach({ $0.cancel() })
+        }
+    }
+    
 }
 
 extension MapVC: CLLocationManagerDelegate {
