@@ -105,7 +105,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         progressLbl?.font = UIFont(name: "Avenir Next" , size: 18)
         progressLbl?.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         progressLbl?.textAlignment = .center
-       // progressLbl?.text = "12/40 photos loaded"
+        progressLbl?.text = "12/40 photos loaded"
         collectionView?.addSubview(progressLbl!)
     }
     
@@ -170,6 +170,9 @@ extension MapVC: MKMapViewDelegate {
         
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(touchCoordinate, regionRadius * 2, regionRadius * 2)
         mapView.setRegion(coordinateRegion, animated: true)
+        
+        //Printing user location with api
+        flicrUrl(forApiKey: apiKey, withAnnotation: annontation, andNumberOfPhotos: 40)
     }
 }
 
