@@ -13,6 +13,7 @@
 		6E6A7CB81F2F518C00840813 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6A7CB71F2F518C00840813 /* Assets.xcassets */; };
 		6E6A7CBB1F2F518C00840813 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6A7CB91F2F518C00840813 /* LaunchScreen.storyboard */; };
 		6E7E11751F3080DD008371D5 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E11741F3080DD008371D5 /* PhotoCell.swift */; };
+		6E91E7811F31BFBE005D2F01 /* PopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E91E7801F31BFBE005D2F01 /* PopVC.swift */; };
 		6EC4B1861F2F72F0005E87E2 /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC4B1851F2F72F0005E87E2 /* DroppablePin.swift */; };
 		6EE4EF941F309045007BF135 /* Constants .swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4EF931F309045007BF135 /* Constants .swift */; };
 		FF71E695D0A0889A9CEF2206 /* Pods_logicTagIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B5DF8F939C67B572E0F589E /* Pods_logicTagIO.framework */; };
@@ -28,6 +29,7 @@
 		6E6A7CBA1F2F518C00840813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E6A7CBC1F2F518C00840813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E7E11741F3080DD008371D5 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		6E91E7801F31BFBE005D2F01 /* PopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVC.swift; sourceTree = "<group>"; };
 		6EC4B1851F2F72F0005E87E2 /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
 		6EE4EF931F309045007BF135 /* Constants .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants .swift"; sourceTree = "<group>"; };
 		7A3298145218D99C41CBDAE9 /* Pods-logicTagIO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-logicTagIO.release.xcconfig"; path = "Pods/Target Support Files/Pods-logicTagIO/Pods-logicTagIO.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				6E6A7CB21F2F518B00840813 /* MapVC.swift */,
+				6E91E7801F31BFBE005D2F01 /* PopVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E91E7811F31BFBE005D2F01 /* PopVC.swift in Sources */,
 				6EE4EF941F309045007BF135 /* Constants .swift in Sources */,
 				6E7E11751F3080DD008371D5 /* PhotoCell.swift in Sources */,
 				6E6A7CB31F2F518B00840813 /* MapVC.swift in Sources */,

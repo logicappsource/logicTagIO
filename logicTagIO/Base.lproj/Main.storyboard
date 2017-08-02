@@ -11,6 +11,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
             <string>AvenirNext-Regular</string>
         </array>
     </customFonts>
@@ -97,6 +98,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139.13043478260872" y="138.58695652173915"/>
+        </scene>
+        <!--PopVC-->
+        <scene sceneID="4dY-Jn-tfy">
+            <objects>
+                <viewController storyboardIdentifier="PopVC" id="Ix2-Yq-FJ5" customClass="PopVC" customModule="logicTagIO" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rad-92-TKZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="kR2-eV-9BD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bNk-yF-Aqt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="obd-HI-qVL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Double Tap To Dissmiss" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYh-sR-HAf">
+                                <rect key="frame" x="113" y="689" width="194" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="obd-HI-qVL" firstAttribute="top" secondItem="bNk-yF-Aqt" secondAttribute="top" id="geS-h0-inS"/>
+                            <constraint firstAttribute="trailing" secondItem="obd-HI-qVL" secondAttribute="trailing" id="p6K-0E-LL4"/>
+                            <constraint firstItem="kR2-eV-9BD" firstAttribute="top" secondItem="obd-HI-qVL" secondAttribute="bottom" id="rcT-yU-pkV"/>
+                            <constraint firstItem="obd-HI-qVL" firstAttribute="leading" secondItem="bNk-yF-Aqt" secondAttribute="leading" id="sg9-VH-fh5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="popImageView" destination="obd-HI-qVL" id="CE1-LU-xdG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ulA-dH-MJt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="943.47826086956525" y="138.58695652173915"/>
         </scene>
     </scenes>
     <resources>
